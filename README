@@ -20,7 +20,7 @@ A more detailed description can be found here: <paper link>
 # Requirements:
 ###############################
 
-The following R packages are requires:
+The following R packages are required:
 
 [1] lsa
 [2] randomForest
