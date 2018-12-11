@@ -1,0 +1,58 @@
+
+###############################
+# Short description:
+###############################
+
+The Rscript 'HiC2Imbalance.R' trains a random forest classifier on a single (Juicertools) dumped hic matrix (data/dumped/chr1_10kb_mouse_limb_E11.5_mapq30_KR_log2_O_vs_E.txt.gz) using a handpicked training set of positive/assymetric (data/positive_set.bed) and negative/symmetric (data/negative_set.bed) domains.
+
+To do so, three imbalance measurements applied on each two domain borders (right and left border) are used:
+
+[1] abs(log2(mean(left domain border)/mean(right domain border)))
+[2] abs(mean(left domain border) - mean(right domain border))
+[3] cosine similarity
+
+Then, the trained model is used to make predictions on all called domains (data/mouse_limb_E11.5_mm9_mapq30_KR_250kb_all_domains.bed) using all dumped hic files located in /data/dumped/ (here, just one file is present).
+
+A more detailed description can be found here: <paper link>
+
+
+###############################
+# Requirements:
+###############################
+
+The following R packages are requires:
+
+[1] lsa
+[2] randomForest
+
+
+###############################
+# Application:
+###############################
+
+The code is not dynamic by now.
+Run: "Rscript HiC2Imbalance.R" to get predicitons for chr1.
+
+
+###############################
+# Results:
+###############################
+
+The result is a table containing the following columns:
+
+[1] 'chr' = chrosome of originally called domain
+[2] 'x1' = start coordinate of  originally called domain
+[3] 'x2' = end  coordinate of  originally called domain 
+[4] 'class' =   
+[5] 'b' =
+[6] 'e' =
+[7] 'imbalance imbalance_diff' = result of first metric
+[8] 'imbalance_diff' = result of second metric
+[9] 'cosine' = result of third metric
+[10]'direction' = indicates left or right anchored assymetry
+[11]'probability' = probablity of assymetric domain
+[12]'tuned.x1' = tuned start coordinate of  originally called domain
+[13]'tuned.x2' = tuned end coordinate of  originally called domain
+
+
+
