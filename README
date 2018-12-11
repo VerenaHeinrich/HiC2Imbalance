@@ -44,8 +44,8 @@ The result is a table containing the following columns:
 [2] 'x1' = start coordinate of  originally called domain
 [3] 'x2' = end  coordinate of  originally called domain 
 [4] 'class' = referring to either 1 (imbalanced TAD) or 0 (balanced TAD) (based on cutoff = 0.5)
-[5] 'b' = start  positions  in matrix:
-[6] 'e' = end positions  in matrix:
+[5] 'b' = start  positions  in matrix
+[6] 'e' = end positions  in matrix
 [7] 'imbalance imbalance_diff' = result of first metric
 [8] 'imbalance_diff' = result of second metric
 [9] 'cosine' = result of third metric
